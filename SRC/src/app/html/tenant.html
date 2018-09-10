@@ -1,0 +1,66 @@
+
+<h2 class="text-center">Tenants</h2>
+<table class="table table-striped" id="tenant-list">
+    <thead>
+        <tr>
+            <th class="text-center" id="id-header">ID</th>
+            <th class="text-center" id="name-header">Name</th>
+            <th class="text-center" id="pn-header">Phone Number</th>
+            <th class="text-center" id="remove-tenant-header"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let tenant of tenants">
+            <th class="text-center">{{tenant.ID}}</th>
+            <th class="text-center">{{tenant.Name}}</th>
+            <th class="text-center">{{tenant.PhoneNumber}}</th>
+            <th class="text-center">
+                <a href="#">
+                    <span class="glyphicon glyphicon-minus-sign" (click)="removeTenant(tenant.ID)"></span>
+                </a>
+            </th>
+        </tr>
+    </tbody>
+</table>
+        
+
+<div id="add-tenant-container" class="container">
+    <!--button-->
+    <button id="add-tenant" type="button" class="btn btn-default btn-lg text-center"
+        data-toggle="modal" data-target="#myModal">
+        <span class="mx-auto glyphicon glyphicon-plus" >tenant</span>
+    </button>
+</div>  
+<!--Modal-->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+        <!--Modal content-->
+        <div class="modal-content">
+            <!--Modal header-->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">New tenant</h4>
+            </div>
+            <!--Modal body-->
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="name" class="form-control" id="name"
+                        placeholder="Enter name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="phone-number">Phone number:</label>
+                    <input type="phone-number" class="form-control" id="phone-number"
+                        placeholder="Enter phone number" name="phone-number">
+                </div>
+                
+                <button type="button" class="btn btn-default" (click)="submit()">Submit</button>
+                <button type="button" id="cancel-button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            <!--Modal footer
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="addTenant()">Submit</button>
+            </div>-->
+        </div>
+    </div>
+</div>
